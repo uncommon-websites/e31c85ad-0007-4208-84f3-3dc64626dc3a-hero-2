@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuzzMD Hero Recreation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Typography Setup */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .font-serif-display {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+
+        /* Custom Background Pattern */
+        .bg-dots {
+            background-color: #ffffff;
+            background-image: radial-gradient(#99f6e4 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        /* Subtle background blobs */
+        .bg-blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animation classes */
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        /* Staggered delays */
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-700 { animation-delay: 700ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up,
+            .animate-fade-in,
+            .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <!-- Top Banner -->
+    <div class="bg-[#f0fdfa] py-2.5 px-4 text-center text-sm font-medium text-gray-900 border-b border-transparent relative z-50 animate-fade-in delay-0">
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+            <span>New! HIPAA-compliant shared SMS inbox for specialty clinics.</span>
+            <a href="#" class="bg-white px-2 py-0.5 rounded text-[11px] font-bold tracking-wide border border-gray-200 hover:bg-gray-50 transition-colors uppercase flex items-center gap-1">
+                Learn More 
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="w-full bg-white/80 backdrop-blur-sm sticky top-0 z-40 border-b border-gray-100/50 animate-fade-in delay-100">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo & Links -->
+            <div class="flex items-center gap-12">
+                <a href="#" class="text-3xl font-bold tracking-tighter text-black">buzzmd</a>
+                <div class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-800">
+                    <a href="#" class="hover:text-black transition-colors">Platform</a>
+                    <a href="#" class="hover:text-black transition-colors">Solutions</a>
+                    <a href="#" class="hover:text-black transition-colors">Resources</a>
+                    <a href="#" class="hover:text-black transition-colors">Pricing</a>
+                </div>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-6">
+                <a href="#" class="hidden md:block text-[15px] font-medium text-gray-800 hover:text-black transition-colors">Log In</a>
+                <a href="#" class="hidden md:block bg-gray-100 hover:bg-gray-200 text-gray-900 px-5 py-2.5 rounded-md text-[15px] font-medium transition-colors">Start Free Trial</a>
+                <a href="#" class="bg-[#0d9488] hover:bg-[#0f766e] text-white
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative bg-dots overflow-hidden min-h-screen flex flex-col">
+        
+        <!-- Background Blobs (Decorative) -->
+        <div class="bg-blob w-[800px] h-[800px] rounded-full bg-[#ccfbf1]/50 -top-40 -left-40 animate-fade-in delay-0"></div>
+        <div class="bg-blob w-[600px] h-[600px] rounded-full bg-[#f0fdfa]/80 top-20 right-0 animate-fade-in delay-0"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 pt-20 md:pt-28 pb-0 flex flex-col items-center text-center w-full">
+            
+            <!-- Headline -->
+            <h1 class="font-serif-display text-[#0d9488] text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-balance max-w-5xl mx-auto mb-8 animate-fade-in-up delay-200">
+                Modern texting<br class="hidden md:block" />
+                <span class="inline-flex items-center align-middle flex-wrap justify-center gap-x-4">
+                    for specialty 
+                    <div class="relative inline-block w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-1 align-middle -mt-2 animate-scale-in delay-400">
+                        <img src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/e31c85ad-0007-4208-84f3-3dc64626dc3a/hero-2-img-0-1771631314809.png" alt="Graphic" class="w-full h-full object-cover rounded-2xl rotate-3 shadow-sm">
+                    </div>
+                    clinics
+                </span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-pretty text-lg md:text-[1.35rem] leading-relaxed text-[#032b16]/90 max-w-3xl mx-auto mb-10 font-normal animate-fade-in-up delay-300">
+                Capture outpatient healthcare with a compliant shared SMS inbox.<br class="hidden md:block">
+                Zero infrastructure. Built for specialty clinic office managers.
+            </p>
+
+            <!-- CTA Button -->
+            <div class="animate-fade-in-up delay-400 mb-20">
+                <a href="#" class="inline-flex items-center gap-2 bg-[#00e665] hover:bg-[#00cc5a] text-white
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+            <!-- Video Placeholder -->
+            <div class="w-full max-w-[1200px] mx-auto relative animate-fade-in-up delay-500">
+                <div class="aspect-video bg-black w-full rounded-t-2xl relative overflow-hidden shadow-2xl">
+                    <!-- Placeholder for video content -->
+                    <img src="https://imolwncbqxugevwmleed.supabase.co/storage/v1/object/public/public-assets/hero-images/e31c85ad-0007-4208-84f3-3dc64626dc3a/hero-2-img-1-1771631315082.png" alt="Video Placeholder" class="w-full h-full object-cover opacity-50">
+                    
+                    <!-- Volume Icon -->
+                    <button class="absolute top-6 right-6 w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center text-white hover:bg-gray-800 transition-colors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Floating Chat Widget -->
+    <div class="fixed bottom-6 right-6 z-50 animate-scale-in delay-700">
+        <button class="w-14 h-14 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        </button>
+    </div>
+
+</body>
+</html>
